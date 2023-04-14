@@ -1,15 +1,16 @@
 import React, { useState } from 'react'
-import { connect } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { add } from '../store';
 import ToDo from '../components/ToDo';
 
-function Home(props) {
-    const {toDos, addTodo} = props;
-    const [text, setText] = useState('')
+function Home() {
+    const dispatch = useDispatch();
+    const toDos = useSelector(state => state.toDos)
+    const [text, setText] = useState("")
 
     const onSubmit = (e) => {
         e.preventDefault()
-        addTodo(text)
+        dispatch(add(text))
         setText("")
     }
 
@@ -24,14 +25,4 @@ function Home(props) {
     )
 }
 
-function mapStateToProps(state) {
-    return {toDos: state.toDos}
-}
-
-function mapDispatchToProps(dispatch) {
-    return {
-        addTodo: (text) => dispatch(add(text))
-    }
-}   
-
-export default connect(mapStateToProps, mapDispatchToProps)(Home);
+export default Home;

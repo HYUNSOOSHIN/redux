@@ -1,16 +1,12 @@
 import React from 'react'
-import { connect } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { remove } from '../store'
 import { Link } from 'react-router-dom'
 
-function ToDo({text, id, onBtnClick}) {
-    return (<li><Link to={`/${id}`}>{text}</Link> <button onClick={onBtnClick}>Del</button></li>)
+function ToDo({text, id}) {
+    const dispatch = useDispatch();
+
+    return (<li><Link to={`/${id}`}>{text}</Link> <button onClick={()=>dispatch(remove(id))}>Del</button></li>)
 }
 
-function mapDispatchToProps(dispatch, ownProps) {
-    return {
-        onBtnClick: () => dispatch(remove(ownProps.id))
-    }
-}   
-
-export default connect(null, mapDispatchToProps)(ToDo)
+export default ToDo

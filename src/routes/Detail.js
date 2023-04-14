@@ -1,9 +1,10 @@
 import React from 'react'
-import { connect } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { useParams } from 'react-router-dom'
 
-function Detail({toDos}) {
+function Detail() {
     const {id} = useParams()
+    const toDos = useSelector(state => state.toDos)
 
     return (
         <>
@@ -13,8 +14,4 @@ function Detail({toDos}) {
     )
 }
 
-function mapStateToProps(state) { 
-    return {toDos: state.toDos}
-}
-
-export default connect(mapStateToProps)(Detail)
+export default Detail
