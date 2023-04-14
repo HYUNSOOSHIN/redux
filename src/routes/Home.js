@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { add } from '../store';
+import { add, fetchTestAsyncThunk } from '../store';
 import ToDo from '../components/ToDo';
 
 function Home() {
@@ -21,6 +21,10 @@ function Home() {
                 <input type="text" value={text} onChange={e=>setText(e.target.value)}></input>
             </form>
             <ul>{toDos.map((toDo) => <ToDo key={toDo.id} text={toDo.text} id={toDo.id}/>)}</ul>
+
+            <button onClick={() => {
+                dispatch(fetchTestAsyncThunk())
+            }}>async thunk</button>
         </>
     )
 }
