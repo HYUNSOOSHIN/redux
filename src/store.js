@@ -1,4 +1,4 @@
-import {configureStore, createSlice} from "@reduxjs/toolkit"
+import { configureStore, createSlice, combineReducers } from "@reduxjs/toolkit"
 
 const toDos = createSlice({
     name: 'toDosReducer',
@@ -13,7 +13,7 @@ const toDos = createSlice({
     }
 })
 
-const store = configureStore({ reducer: toDos.reducer })
+const store = configureStore({ reducer: combineReducers({toDos: toDos.reducer}) })
 
 export const { add, remove } = toDos.actions
 

@@ -25,7 +25,7 @@ function Home(props) {
 }
 
 function mapStateToProps(state) {
-    return {toDos: state}
+    return {toDos: state.toDos}
 }
 
 function mapDispatchToProps(dispatch) {

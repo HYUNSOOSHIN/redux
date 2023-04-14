@@ -14,7 +14,7 @@ function Detail({toDos}) {
 }
 
 function mapStateToProps(state) { 
-    return {toDos: state}
+    return {toDos: state.toDos}
 }
 
 export default connect(mapStateToProps)(Detail)
