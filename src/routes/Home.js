@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { add, fetchTestAsyncThunk } from '../store';
+import { add, fetchTestAsyncThunk } from '../redux/modules/toDos';
 import ToDo from '../components/ToDo';
 
 function Home() {

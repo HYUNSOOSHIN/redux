@@ -1,4 +1,4 @@
-import { configureStore, createSlice, combineReducers, createAsyncThunk } from "@reduxjs/toolkit"
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit"
 import axios from "axios"
 
 export const fetchTestAsyncThunk = createAsyncThunk('async/fetchTest', async (params, thunkAPI) => {
@@ -38,8 +38,6 @@ const toDos = createSlice({
     }
 })
 
-const store = configureStore({ reducer: combineReducers({toDos: toDos.reducer}) })
-
 export const { add, remove } = toDos.actions
 
-export default store
+export default toDos

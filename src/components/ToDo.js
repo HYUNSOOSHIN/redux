@@ -1,6 +1,6 @@
 import React from 'react'
 import { useDispatch } from 'react-redux'
-import { remove } from '../store'
+import { remove } from '../redux/modules/toDos'
 import { Link } from 'react-router-dom'
 
 function ToDo({text, id}) {
